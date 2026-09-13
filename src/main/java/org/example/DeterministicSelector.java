@@ -17,6 +17,17 @@ public class DeterministicSelector {
             return arr[k];
         }
 
+        // --- ЗАЩИТА ОТ БЕСКОНЕЧНОГО ЗАВИСАНИЯ НА ДУБЛИКАТАХ ---
+        boolean allSame = true;
+        for (int i = left; i < right; i++) {
+            if (arr[i] != arr[i+1]) {
+                allSame = false;
+                break;
+            }
+        }
+        if (allSame) return arr[left];
+        // -------------------------------------------------------
+
         // 1. Разбиваем на группы по 5 элементов (Groups of 5)
         int numMedians = 0;
         for (int i = left; i <= right; i += 5) {

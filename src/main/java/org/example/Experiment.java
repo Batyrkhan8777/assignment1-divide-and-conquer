@@ -15,7 +15,7 @@ public class Experiment {
             // Заголовок CSV файла
             writer.println("Algorithm,InputType,InputSize,Time_ns,MaxRecursionDepth,MemoryUsed_bytes");
 
-            int[] sizes = {10_000, 50_000, 100_000}; // Small, Medium, Large
+            int[] sizes = {1_000, 5_000, 20_000}; // Small, Medium, Large
             String[] types = {"Random", "Sorted", "Reverse-sorted", "Duplicate-heavy"};
 
             for (int size : sizes) {
